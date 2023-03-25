@@ -102,7 +102,7 @@ def world():
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'black')
 
-
+# Se define la función de movimiento para el pacman y los fantasmas inteligentes.
 def move():
     """Move pacman and all ghosts."""
     writer.undo()
@@ -131,9 +131,9 @@ def move():
             point.move(course)
         else:
             if pacman.y<=point.y:
-            #hay que bajar
+             #Se va para abajo
                 if pacman.x<=point.x:
-                #hay que ir a la izquierda
+                 #Se va para la izquierda
                     options = [
                         vector(-7, 0),
                         vector(0, -7)
@@ -152,7 +152,7 @@ def move():
                     course.y = plan.y
 
                 else:
-                    #hay que ir a la derecha
+                     #Se va para  la derecha
                         options=[
                         vector(7, 0),
                         vector(0, -7)
@@ -170,9 +170,9 @@ def move():
                             course.x = plan.x
                             course.y = plan.y
             else:
-                #hay que ir hacia arriba
+                #Se va para arriba
                 if pacman.x<=point.x:
-                    #a la izquierda
+                     #Se va para la izquierda
                     options = [
                         vector(-7, 0),
                         vector(0, 7)
@@ -182,7 +182,7 @@ def move():
                         course.x = plan.x
                         course.y = plan.y
                     else:
-                         #a la izquierda
+                         #Se va para la izquierda
                         options = [
                             vector(7, 0),
                             vector(0, 7)
@@ -191,7 +191,7 @@ def move():
                         course.x = plan.x
                         course.y = plan.y
                 else:
-                    #a la derecha
+                   #Se va para la derecha
                     options=[
                     vector(7, 0),
                     vector(0, 7)
@@ -238,7 +238,7 @@ def change(x, y):
         aim.x = x
         aim.y = y
 
-
+#Se define la dimension y se imprime en la pantalla el marcador.
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
@@ -246,6 +246,7 @@ writer.goto(160, 160)
 writer.color('ivory')
 writer.write(state['score'])
 listen()
+#Se delimitan los controles y hacia donde van.
 onkey(lambda: change(5, 0), 'Right')
 onkey(lambda: change(-5, 0), 'Left')
 onkey(lambda: change(0, 5), 'Up')
