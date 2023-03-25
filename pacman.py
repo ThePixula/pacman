@@ -126,19 +126,98 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'springgreen')
 
-    for point, course in ghosts:
+     for point, course in ghosts:
         if valid(point + course):
             point.move(course)
         else:
-            options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
-            ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+            if pacman.y<=point.y:
+            #hay que bajar
+                if pacman.x<=point.x:
+                #hay que ir a la izquierda
+                    options = [
+                        vector(-7, 0),
+                        vector(0, -7)
+                    ]
+                    plan = choice(options)
+                    if valid(point + plan):
+                        course.x = plan.x
+                        course.y = plan.y
+                    else:
+                        options = [
+                            vector(7, 0),
+                            vector(0,7)
+                        ]
+                    plan = choice(options)
+                    course.x = plan.x
+                    course.y = plan.y
+
+                else:
+                    #hay que ir a la derecha
+                        options=[
+                        vector(7, 0),
+                        vector(0, -7)
+                        ]
+                        plan = choice(options)
+                        if valid(point + plan):
+                            course.x = plan.x
+                            course.y = plan.y
+                        else:
+                            options=[
+                            vector(-7, 0),
+                            vector(0, 7)
+                            ]
+                            plan = choice(options)
+                            course.x = plan.x
+                            course.y = plan.y
+            else:
+                #hay que ir hacia arriba
+                if pacman.x<=point.x:
+                    #a la izquierda
+                    options = [
+                        vector(-7, 0),
+                        vector(0, 7)
+                    ]
+                    plan = choice(options)
+                    if valid(point + plan):
+                        course.x = plan.x
+                        course.y = plan.y
+                    else:
+                         #a la izquierda
+                        options = [
+                            vector(7, 0),
+                            vector(0, 7)
+                        ] 
+                        plan = choice(options)
+                        course.x = plan.x
+                        course.y = plan.y
+                else:
+                    #a la derecha
+                    options=[
+                    vector(7, 0),
+                    vector(0, 7)
+                    ]
+                    plan = choice(options)
+                    if valid(point + plan):
+                        course.x = plan.x
+                        course.y = plan.y
+                    else:
+                        print("MAL")
+                        options=[
+                        vector(-7, 0),
+                        vector(0, 7),
+                        ]
+                        if valid(point + plan):
+                            course.x = plan.x
+                            course.y = plan.y
+                        else:                        
+                            options=[
+                            vector(-7, 0),
+                            vector(0, -7),
+                            vector(0, 7)
+                            ]
+                        plan = choice(options)
+                        course.x = plan.x
+                        course.y = plan.y
 
         up()
         goto(point.x + 10, point.y + 10)
