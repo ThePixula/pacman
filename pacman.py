@@ -5,16 +5,20 @@ from turtle import *
 
 from freegames import floor, vector
 
+#Se definen las posiciones iniciales del pacman(Se cambio la posición inicial del pacman),los fantasmas y la velociad de los fantasmas.
+
 state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
-pacman = vector(-40, -80)
+pacman = vector(-120, -110)
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(-180, 160), vector(7, 0)],
+    [vector(-180, -160), vector(0, 7)],
+    [vector(100, 160), vector(0, -7)],
+    [vector(100, -160), vector(-7, 0)],
+    [vector(90, 120), vector(0, -7)],
+    [vector(90, -120), vector(-7, 0)]
 ]
 # fmt: off
 tiles = [
