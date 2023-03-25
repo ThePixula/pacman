@@ -126,7 +126,7 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'springgreen')
 
-     for point, course in ghosts:
+    for point, course in ghosts:
         if valid(point + course):
             point.move(course)
         else:
