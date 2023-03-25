@@ -46,7 +46,7 @@ tiles = [
 ]
 # fmt: on
 
-
+#Dibuja el cuadro
 def square(x, y):
     """Draw square using path at (x, y)."""
     path.up()
@@ -60,7 +60,7 @@ def square(x, y):
 
     path.end_fill()
 
-
+#Regresa el offset del punto
 def offset(point):
     """Return offset of point in tiles."""
     x = (floor(point.x, 20) + 200) / 20
